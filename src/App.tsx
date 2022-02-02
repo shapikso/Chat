@@ -1,26 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import MainLayout from './components/MainLayout/MainLayout';
+import { Routes, Route} from "react-router-dom";
+import SignIn from "./components/SignIn/SignIn";
+import AcceptInvitation from './components/AcceptInvitation/AcceptInvitation';
+import SignUp from './components/SignUp/SignUp';
+import ErrorInvitation from './components/ErrorInvitation/ErrorInvitation';
+import NewPassword from './components/NewPassword/NewPassword';
+import ForgotPassword from './components/ForgotPassword/ForgotPassword';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <MainLayout>
+            <Routes>
+                <Route path="/" element={<SignIn />} />
+                <Route path="/user/signUp" element={<SignUp />} />
+                <Route path="/user/acceptInvitation" element={<AcceptInvitation />} />
+                <Route path="/user/errorInvitation" element={<ErrorInvitation />} />
+                <Route path="/user/newPassword" element={<NewPassword />} />
+                <Route path="/user/forgotPassword" element={<ForgotPassword />} />
+            </Routes>
+        </MainLayout>    
+
+    );
 }
 
 export default App;
