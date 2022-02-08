@@ -5,13 +5,16 @@ type TInput = {
 }
 
 export const StInput = styled.input<TInput>`
-    padding: 10px 25px;
-    background: none;
-    border: 1px solid ${({error}) =>  error ? '#FF0000FF' : '#DBDEE5FF'  };
-    border-radius: 5px;
-    height: 50px;
-    font-size: 16px;
-    color: #DBDEE5FF;
+  padding: 14px 25px;
+  background: #7D9ECE;
+  border: 1px solid ${({error}) => error ? '#FF0000FF' : '#DBDEE5FF'};
+  border-radius: 8px;
+  height: 20px;
+  font-size: 20px;
+  color: #ffffff;
+  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #ffffff;
+  }
 `;
 
 export const StRelativeWrapper = styled.div `

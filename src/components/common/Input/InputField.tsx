@@ -3,25 +3,22 @@ import Error from './Error';
 import {StInput, StRelativeWrapper} from "./styled";
 
 type TInputProps = {
-    type: 'text' | 'submit',
+    type?: 'text' | 'password',
     label: string,
     value: string,
     placeholder: string,
     onChange: (value: string) => void,
-    readOnly: boolean,
     onBlur: (value: string) => void,
-    contentKey: string,
     error: string
 };
 
 const InputField: React.FC<TInputProps> = ({
     label,
     type = 'text',
-    value,
+    value ,
     placeholder,
     onChange,
-    error,
-    readOnly = false,
+    error = '',
     onBlur,
 }) => {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => onChange(e.target.value);
@@ -34,7 +31,6 @@ const InputField: React.FC<TInputProps> = ({
                 name={label}
                 value={value}
                 placeholder={placeholder}
-                readOnly={readOnly}
                 autoComplete="off"
                 onChange={handleChange}
                 onBlur={handleBlur}

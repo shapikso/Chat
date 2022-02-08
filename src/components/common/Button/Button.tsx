@@ -3,8 +3,7 @@ import {StButton} from "./styled";
 
 type TButtonProps = {
     type: 'button' | 'submit'| 'reset',
-    className: string,
-    isDisabled: boolean,
+    isDisabled?: boolean,
     onClick: () => void,
     contentKey: string,
 };
