@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 type TInput = {
     error: string
-}
+};
 
 export const StInput = styled.input<TInput>`
     padding: 10px 25px;
