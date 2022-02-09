@@ -1,23 +1,24 @@
 import React from 'react';
 import InputField from "../common/Input/InputField";
-import { ActiveFieldWrapper, SingInWrapper, StFormWrapper, StLinkWrapper,StH1 } from './styled';
+import { ActiveFieldWrapper, SingInWrapper, StFormWrapper,StH1 } from './styled';
 import Button from "../common/Button/Button";
-import {Link} from "react-router-dom";
+//import {Link} from "react-router-dom";
 import {isValidEmail, isValidPassword} from "../../helpers/validation";
+import { useNavigate } from 'react-router';
 //import axios from 'axios';
 
 const SignIn = () => {
+    const navigate = useNavigate();
     const [state, setState] = React.useState({
-        email: '',
+        login: '',
         password: '',
-        isLoading: false,
         error : {
-            email: '',
+            login: '',
             password: '',
         }
     });
 
-    const changeEmail = (value:string) => setState((prevState => ({...prevState, email: value})));
+    const changeEmail = (value:string) => setState((prevState => ({...prevState, login: value})));
     const changePassword = (value:string) => setState((prevState => ({...prevState, password: value})));
 
     const validatePassword = () => {
@@ -25,19 +26,14 @@ const SignIn = () => {
         setState({...state, error: {...state.error, password: error}});
     };
     const validateEmail = () => {
-        const error = isValidEmail(state.email);
-        setState({...state, error: {...state.error, email: error}});};
+        const error = isValidEmail(state.login);
+        setState({...state, error: {...state.error, login: error}});};
 
     const onClickHandler = async () => {
-        try {
-            setState({...state, isLoading: true});
             //const body = {login: state.email, password: state.password};
             //const {headers} = await axios.post(URL_SIGN_IN, body);
             //localStorage.setItem('token', headers.token);
-            //navigate('/acceptInvitation');
-        } finally {
-            setState({...state, isLoading: false});
-        }
+        navigate('/cards');
         console.log('trying sing up');
     };
     return (
@@ -48,32 +44,25 @@ const SignIn = () => {
                     <InputField
                         onChange={changeEmail}
                         onBlur={validateEmail}
-                        value={state.email}
+                        value={state.login}
                         label="Login"
-                        placeholder="Type your Email"
-                        error={state.error.email}  />
+                        placeholder="Type your login"
+                        error={state.error.login}  />
                     <InputField
                         onChange={changePassword}
                         onBlur={validatePassword}
                         value={state.password}
                         label="Password"
                         type="password"
-                        placeholder="Type your Password"
+                        placeholder="Type your password"
                         error={state.error.password}/>
                     <Button
                         type="button"
-                        isDisabled={ !!state.error.email || !!state.error.password }
+                        isDisabled={ !!state.error.login || !!state.error.password }
                         onClick={onClickHandler}
                         contentKey="SIGN IN" />
                 </ActiveFieldWrapper>
-
-                <StLinkWrapper marginTop="35px">
-                    <Link to="/user/forgotPassword">Forgot password?</Link>
-                </StLinkWrapper>
             </StFormWrapper>
-            <StLinkWrapper>
-                You have an account? <Link to="/user/signUp"><span>Sign Up</span></Link>
-            </StLinkWrapper>
         </SingInWrapper>
     );
 };

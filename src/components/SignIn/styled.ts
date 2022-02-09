@@ -29,6 +29,9 @@ export const StFormWrapper = styled.div`
   text-align: center;
   flex-direction: column;
   gap: 20px;
+  border: 2px solid #fff;
+  padding: 30px;
+  border-radius: 10px;
 `;
 
 export const StLinkWrapper = styled.div<TLink>`
@@ -56,4 +59,5 @@ export const StLinkWrapper = styled.div<TLink>`
 
 export const StH1 = styled.h1`
  font-size: 48px;
+  color: #fff;
 `;
