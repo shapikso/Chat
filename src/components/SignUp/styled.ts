@@ -13,7 +13,7 @@ export const ActiveFieldWrapper = styled.div`
   gap: 25px;
 `;
 
-export const SingInWrapper = styled.div`
+export const SingUpWrapper = styled.div`
  display: flex;
   align-items: center;
   justify-content: center;

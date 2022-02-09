@@ -11,9 +11,14 @@ export const StButton = styled.button `
   color: #DBDEE5FF;
   border-radius: 5px;
   background-color: #2D2327;
-  
+  border: none;
+  cursor: pointer;
   &:hover {
     background-color: #7D9ECE;
-    
+  }
+  &:disabled{
+    background-color: #2D2327;
+    opacity: 0.7;
+    cursor: not-allowed;
   }
 `;

@@ -7,7 +7,7 @@ type TInput = {
 export const StInput = styled.input<TInput>`
   padding: 14px 25px;
   background: #7D9ECE;
-  border: 1px solid ${({error}) => error ? '#FF0000FF' : '#DBDEE5FF'};
+  border: 2px solid ${({error}) => error ? '#FF0000FF' : '#DBDEE5FF'};
   border-radius: 8px;
   height: 20px;
   font-size: 20px;
@@ -28,8 +28,10 @@ export const StInvalidDiv = styled.div `
   width: 300px;
   height: 22px;
   font-size: 14px;
-  color: var(--primary-color-invalid);
-  bottom: -5px;
+  color: #FF0000FF;
+  bottom: -25px;
+  left: 5px;
+  text-align: left;
 `;
 
 export const StForm = styled.form `

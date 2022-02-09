@@ -1,14 +1,16 @@
 import React from 'react';
 import InputField from "../common/Input/InputField";
-import { InputWrapper, SingInWrapper, StFormWrapper, StLinkWrapper,StH1 } from './styled';
+import { ActiveFieldWrapper, SingInWrapper, StFormWrapper, StLinkWrapper,StH1 } from './styled';
 import Button from "../common/Button/Button";
 import {Link} from "react-router-dom";
+import {isValidEmail, isValidPassword} from "../../helpers/validation";
 //import axios from 'axios';
 
 const SignIn = () => {
     const [state, setState] = React.useState({
         email: '',
         password: '',
+        isLoading: false,
         error : {
             email: '',
             password: '',
@@ -17,33 +19,39 @@ const SignIn = () => {
 
     const changeEmail = (value:string) => setState((prevState => ({...prevState, email: value})));
     const changePassword = (value:string) => setState((prevState => ({...prevState, password: value})));
-    const validateEmail = (value: string) => {console.log(value);};
-    const validatePassword = (value: string) => {console.log(value);};
+
+    const validatePassword = () => {
+        const error = isValidPassword(state.password);
+        setState({...state, error: {...state.error, password: error}});
+    };
+    const validateEmail = () => {
+        const error = isValidEmail(state.email);
+        setState({...state, error: {...state.error, email: error}});};
 
     const onClickHandler = async () => {
-        // try {
-        //     setState({...state, isLoading: true});
-        //     const body = {login: state.user, password: state.password};
-        //     const {headers} = await axios.post(URL_SIGN_IN, body);
-        //     localStorage.setItem('token', headers.token);
-        //     navigate('/movies');
-        // } finally {
-        //     setState({...state, isLoading: false});
-        // }
+        try {
+            setState({...state, isLoading: true});
+            //const body = {login: state.email, password: state.password};
+            //const {headers} = await axios.post(URL_SIGN_IN, body);
+            //localStorage.setItem('token', headers.token);
+            //navigate('/acceptInvitation');
+        } finally {
+            setState({...state, isLoading: false});
+        }
         console.log('trying sing up');
     };
     return (
         <SingInWrapper>
             <StFormWrapper>
                 <StH1>Sign in</StH1>
-                <InputWrapper>
+                <ActiveFieldWrapper>
                     <InputField
                         onChange={changeEmail}
                         onBlur={validateEmail}
                         value={state.email}
                         label="Login"
                         placeholder="Type your Email"
-                        error=""  />
+                        error={state.error.email}  />
                     <InputField
                         onChange={changePassword}
                         onBlur={validatePassword}
@@ -51,9 +59,14 @@ const SignIn = () => {
                         label="Password"
                         type="password"
                         placeholder="Type your Password"
-                        error=""/>
-                </InputWrapper>
-                <Button type="button" onClick={onClickHandler} contentKey="SING IN" />
+                        error={state.error.password}/>
+                    <Button
+                        type="button"
+                        isDisabled={ !!state.error.email || !!state.error.password }
+                        onClick={onClickHandler}
+                        contentKey="SIGN IN" />
+                </ActiveFieldWrapper>
+
                 <StLinkWrapper marginTop="35px">
                     <Link to="/user/forgotPassword">Forgot password?</Link>
                 </StLinkWrapper>
