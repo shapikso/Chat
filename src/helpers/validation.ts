@@ -13,18 +13,6 @@ export const isValidName = (name: string) => {
             return '';
     }
 };
-export const isValidLogin = (login: string) => {
-    switch (true) {
-        case (!REGEX.ONLY_LATIN_LETTERS_AND_NUMBERS.test(login)):
-            return constants.MESSAGE_LATIN_LETTER_AND_NUMBERS;
-        case (login.length < 4 || login.length > 20):
-            return constants.MESSAGE_RANGE_CHARACTERS;
-        case (!REGEX.STARTS_WITH_LETTER.test(login)):
-            return constants.MESSAGE_START_WITH_LETTER;
-        default:
-            return '';
-    }
-};
 
 export const isValidEmail= (email: string) => {
     switch (true) {

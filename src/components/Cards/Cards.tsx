@@ -5,7 +5,8 @@ import {Button, CardActions } from '@mui/material';
 import { StCardWrapper, StCardActionsWrapper, StLoader } from './styled';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import logo from '../../images/loader.gif';
+import logo from '../../images/loader1.gif';
+//import checkAuth from "../../HOCs/LogHoc";
 
 type Tcard = {
     cardId: string,

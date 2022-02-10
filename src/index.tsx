@@ -4,11 +4,14 @@ import './index.css';
 import App from './App';
 //import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
+import { MatchesContextProvider } from './userContext';
 
 ReactDOM.render(
-    <BrowserRouter>
-        <App />
-    </BrowserRouter>,
+    <MatchesContextProvider>
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
+    </MatchesContextProvider>,
     document.getElementById('root')
 );
 

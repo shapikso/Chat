@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 //import InputField from "../common/Input/InputField";
 import { ActiveFieldWrapper, SingInWrapper, StFormWrapper,StH1 } from './styled';
 import Button from "../common/Button/Button";
@@ -6,10 +6,17 @@ import TextField from '@mui/material/TextField';
 //import {Link} from "react-router-dom";
 import {isValidEmail, isValidPassword} from "../../helpers/validation";
 import { useNavigate } from 'react-router';
+import {UserContext} from "../../userContext";
 //import axios from 'axios';
+
+type TContext = {
+    user: string,
+    setNewUser: (value: string) => void
+}
 
 const SignIn = () => {
     const navigate = useNavigate();
+    const {setNewUser} = useContext<TContext>(UserContext);
     const [state, setState] = React.useState({
         login: '',
         password: '',
@@ -35,6 +42,7 @@ const SignIn = () => {
         // const {headers} = await axios.post('http://www.stepanchewbacca.pp.ua/api/user/sign-up', body);
         // console.log(headers);
             //localStorage.setItem('token', headers.token);
+        setNewUser(state.login);
         navigate('/cards');
         //console.log('trying sing up');
     };

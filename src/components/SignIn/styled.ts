@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import border from '../../images/Main_page_rail_border.png';
 
 export const ActiveFieldWrapper = styled.div`
  display: flex;
@@ -28,7 +28,8 @@ export const SingInWrapper = styled.div`
   flex-direction: column;
   gap: 20px;
   background: #ebd19e;
-  border-radius: 10px;
+  border: 17px solid transparent;
+  border-image: url(${border}) 17 repeat;
 `;
 
 export const StFormWrapper = styled.div`

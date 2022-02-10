@@ -1,15 +1,18 @@
 import styled from "styled-components";
 import img from '../../images/Skin-Content-Background.jpg';
+import border from '../../images/Main_page_rail_border.png';
 
 
 export const StCardWrapper = styled.div`
-    background: #ebd19e url(${img}) repeat left top;
-    display: flex;
-    width: 1500px;
-    flex-wrap: wrap;
-    gap: 25px;
-    padding: 15px;
-    justify-content: center;
+  background: #ebd19e url(${img}) repeat left top;
+  border: 17px solid transparent;
+  border-image: url(${border}) 17 repeat;
+  display: flex;
+  width: 1500px;
+  flex-wrap: wrap;
+  gap: 25px;
+  padding: 15px;
+  justify-content: center;
   min-height: 65vh;
   align-items: center;
 `;

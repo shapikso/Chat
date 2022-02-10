@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import axios from "axios";
 import { useLocation } from 'react-router-dom';
 import {StCardWrapper, StLoader, StContentWrapper, StImageWrapper, StInfoWrapper} from './styled';
-import logo from "../../images/loader.gif";
+import logo from "../../images/loader1.gif";
 
 type Tcard = {
     cardId: string,
