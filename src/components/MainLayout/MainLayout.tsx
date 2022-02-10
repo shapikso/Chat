@@ -1,6 +1,6 @@
 import React from 'react';
 import Logo from "../common/Logo/Logo";
-import {StHeader} from "./styled";
+import { StHeader, StMain } from "./styled";
 
 const MainLayout = (props:any) => {
     return (
@@ -8,7 +8,7 @@ const MainLayout = (props:any) => {
             <StHeader>
                 <Logo/>
             </StHeader>
-            <main className="main">{props.children}</main>
+            <StMain className="main">{props.children}</StMain>
         </>
     );
 };

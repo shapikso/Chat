@@ -1,8 +1,5 @@
 import styled from "styled-components";
 
-type TLink = {
-    marginTop?: string
-}
 
 export const ActiveFieldWrapper = styled.div`
  display: flex;
@@ -11,6 +8,16 @@ export const ActiveFieldWrapper = styled.div`
   text-align: center;
   flex-direction: column;
   gap: 25px;
+ 
+  div{
+    label {
+      color: #1f0c08;
+    }
+    fieldset{
+      border-color:  #1f0c08;
+    }
+    
+  }
 `;
 
 export const SingInWrapper = styled.div`
@@ -20,44 +27,22 @@ export const SingInWrapper = styled.div`
   text-align: center;
   flex-direction: column;
   gap: 20px;
+  background: #ebd19e;
+  border-radius: 10px;
 `;
 
 export const StFormWrapper = styled.div`
- display: flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   flex-direction: column;
   gap: 20px;
-  border: 2px solid #fff;
   padding: 30px;
   border-radius: 10px;
 `;
 
-export const StLinkWrapper = styled.div<TLink>`
-  font-size: 24px;
-  margin-top: ${({marginTop}) => marginTop || '65px'};
-  color: #A6A6A6;
-
-  a {
-    text-decoration: none;
-    color: #A6A6A6;
-  }
-
-  a: hover {
-    text-decoration: underline;
-    color: #808080;
-  } span {
-    color: #7D9ECE;
-  };
-
-  span:hover {
-    text-decoration: underline;
-    color: #5184ce;
-  }
-`;
-
 export const StH1 = styled.h1`
  font-size: 48px;
-  color: #fff;
+ color: #1f0c08; 
 `;
