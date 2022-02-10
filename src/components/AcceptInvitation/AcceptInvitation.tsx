@@ -41,10 +41,12 @@ const AcceptInvitation = () => {
         }
     });
 
+
     const changeFirstName = (value:string) => setState(prevState => ({...prevState, firstName: value}));
     const changeLastName = (value:string) => setState(prevState => ({...prevState, secondName: value}));
     const changeGender = (gender: TOption | null) => setState(prevState => ({...prevState, gender: gender}));
-    const setDate = (date:Date) => setState(prevState => ({...prevState, dateOfBirthday: date}));
+    const setDate = (date:Date) => {
+        setState(prevState => ({...prevState, dateOfBirthday: date}));};
     const validateFirstName = () => {
         const error = isValidName(state.firstName);
         setState({...state, error: {...state.error, firstName: error}});};

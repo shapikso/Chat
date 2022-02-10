@@ -4,7 +4,7 @@ import { ActiveFieldWrapper, SingInWrapper, StFormWrapper, StLinkWrapper,StH1 } 
 import Button from "../common/Button/Button";
 import {Link} from "react-router-dom";
 import {isValidEmail, isValidPassword} from "../../helpers/validation";
-//import axios from 'axios';
+import axios from 'axios';
 
 const SignIn = () => {
     const [state, setState] = React.useState({
@@ -31,8 +31,10 @@ const SignIn = () => {
     const onClickHandler = async () => {
         try {
             setState({...state, isLoading: true});
-            //const body = {login: state.email, password: state.password};
-            //const {headers} = await axios.post(URL_SIGN_IN, body);
+            const body = {"email" : "jopaui@ik.ru",
+                "password": "228_1488"};
+            const {data} = await axios.post('https://stepanchewbacca.pp.ua/api/user/sign-up', body);
+            console.log(data);
             //localStorage.setItem('token', headers.token);
             //navigate('/acceptInvitation');
         } finally {
