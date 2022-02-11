@@ -5,7 +5,10 @@ type TContext = {
     setNewUser: (value: string) => void
 }
 
-const Context = React.createContext<TContext>({user: '', setNewUser: () => {}});
+const Context = React.createContext<TContext>({
+    user: '',
+    setNewUser: () => {}
+});
 
 type TProps = {
     children: React.ReactNode
@@ -16,11 +19,7 @@ const MatchesContextProvider: React.FC<TProps> = ({children}) => {
     const setNewUser = (user: string) => setUser(user);
     const contextValue: TContext = { user, setNewUser};
     return (
-        <Context.Provider
-            value={contextValue}
-        >
-            {children}
-        </Context.Provider>
+        <Context.Provider value={contextValue}>{children}</Context.Provider>
     );
 };
 

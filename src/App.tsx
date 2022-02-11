@@ -8,13 +8,15 @@ import CardPage from './components/CardPage/CardPage';
 
 function App() {
     return (
-        <MainLayout>
-            <Routes>
-                <Route path="/" element={<SignIn />} />
+       
+        <Routes>
+            <Route path="/" element={<SignIn />} />
+            <Route element={<MainLayout />}>
                 <Route path="/cards" element={<Cards />} />
                 <Route path="/cards/:id" element={<CardPage />}/>
-            </Routes>
-        </MainLayout>    
+            </Route>
+        </Routes>
+        
 
     );
 }

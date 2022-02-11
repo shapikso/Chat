@@ -26,8 +26,15 @@ const SignIn = () => {
         }
     });
 
-    const changeEmail = (event : any) => setState((prevState => ({...prevState, login: event.target.value})));
-    const changePassword = (event: any ) => setState((prevState => ({...prevState, password: event.target.value})));
+    const changeEmail = (event: React.ChangeEvent<HTMLInputElement>) => setState((prevState => (
+        {...prevState,
+            login: event.target.value
+        })));
+    const changePassword = (event: React.ChangeEvent<HTMLInputElement>) => setState((prevState => (
+        {
+            ...prevState,
+            password: event.target.value
+        })));
 
     const validatePassword = () => {
         const error = isValidPassword(state.password);

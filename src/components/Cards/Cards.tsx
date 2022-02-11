@@ -6,29 +6,10 @@ import { StCardWrapper, StCardActionsWrapper, StLoader } from './styled';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import logo from '../../images/loader1.gif';
-//import checkAuth from "../../HOCs/LogHoc";
+import checkAuth from "../../HOCs/LogHoc";
+import { TCard } from '../../commonTypes';
 
-type Tcard = {
-    cardId: string,
-    dbfId: string,
-    name: string,
-    cardSet: string,
-    type: string,
-    faction: string,
-    rarity: string,
-    cost: number,
-    attack: number,
-    health: number,
-    text: string,
-    flavor: string,
-    artist: string,
-    collectible: boolean,
-    elite: boolean,
-    playerClass: string,
-    howToGetDiamond: string,
-    img: string,
-    locale: string
-};
+
 
 
 const Cards = () => {
@@ -55,7 +36,7 @@ const Cards = () => {
         <StCardWrapper>
             { state.isLoading
                 ? <StLoader src={logo} alt="loading..." />
-                : ( state.cards.map((card: Tcard) => {
+                : ( state.cards.map((card: TCard) => {
                     return card.img ? (<div key={card.cardId}>
                         <Card sx={{maxWidth: 220}} key={card.cardId}>
                             <CardMedia
@@ -65,17 +46,14 @@ const Cards = () => {
                             />
                             <StCardActionsWrapper>
                                 <CardActions>
-                                    <Link
-                                        to={`/cards/${card.cardId}`}
-                                        target={"_blank"}
-                                    >
+                                    <Link to={`/cards/${card.cardId}`}>
                                         <Button variant="contained" size="small">Learn More</Button>
                                     </Link>
                                 </CardActions>
                             </StCardActionsWrapper>
                         </Card>
                     </div>)
-                        : false;
+                        : null;
                 })
                 )
             }
@@ -83,4 +61,4 @@ const Cards = () => {
     );
 };
 
-export default Cards;
+export default checkAuth(Cards);

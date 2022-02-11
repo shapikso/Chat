@@ -2,14 +2,13 @@ import React, {useContext} from 'react';
 import {UserContext} from "../userContext";
 import {Navigate } from "react-router";
 
-const checkAuth = (Component: any) => {
+// eslint-disable-next-line react/display-name
+const checkAuth = (Component: any) => (props: any) => {
     const {user} = useContext(UserContext);
+    console.log(user);
     return user
-        ? class AuthHoc extends React.Component {
-            render() {
-                return <Component {...this.props}/>;
-            }
-        } : <Navigate  to="/" />;
+        ? <Component {...props}/>
+        : <Navigate  to="/" />;
 };
 
 export default checkAuth;
