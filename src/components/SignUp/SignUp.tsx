@@ -4,6 +4,7 @@ import {ActiveFieldWrapper, SingUpWrapper, StFormWrapper, StH1, StLinkWrapper} f
 import InputField from "../common/Input/InputField";
 import Button from "../common/Button/Button";
 import {Link} from "react-router-dom";
+import axios from 'axios';
 
 const SignUp = () => {
     const [state, setState] = React.useState({
@@ -38,10 +39,13 @@ const SignUp = () => {
     const onClickHandler = async () => {
         try {
             setState({...state, isLoading: true});
-            //const body = {login: state.email, password: state.password};
-            //const {headers} = await axios.post(URL_SIGN_IN, body);
+            const body = {email: state.email, password: state.password};
+            const { data } = await axios.post('http://www.stepanchewbacca.pp.ua/api/user/sign-up', body);
+            console.log(data);
             //localStorage.setItem('token', headers.token);
             //navigate('/acceptInvitation');
+        } catch (error) {
+            console.log(error);
         } finally {
             setState({...state, isLoading: false});
         }
@@ -83,7 +87,7 @@ const SignUp = () => {
                 </ActiveFieldWrapper>
             </StFormWrapper>
             <StLinkWrapper>
-                You have an account? <Link to="/"><span>Sign In</span></Link>
+                You have an account? <Link to="/sign-in"><span>Sign In</span></Link>
             </StLinkWrapper>
         </SingUpWrapper>
     );

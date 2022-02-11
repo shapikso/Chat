@@ -70,11 +70,11 @@ const SignIn = () => {
                 </ActiveFieldWrapper>
 
                 <StLinkWrapper marginTop="35px">
-                    <Link to="/user/forgotPassword">Forgot password?</Link>
+                    <Link to="/forgot-password">Forgot password?</Link>
                 </StLinkWrapper>
             </StFormWrapper>
             <StLinkWrapper>
-                You have an account? <Link to="/user/signUp"><span>Sign Up</span></Link>
+                You have an account? <Link to="/sign-up"><span>Sign Up</span></Link>
             </StLinkWrapper>
         </SingInWrapper>
     );
