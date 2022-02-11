@@ -8,6 +8,7 @@ import SignUp from './components/SignUp/SignUp';
 import ErrorInvitation from './components/ErrorInvitation/ErrorInvitation';
 import NewPassword from './components/NewPassword/NewPassword';
 import ForgotPassword from './components/ForgotPassword/ForgotPassword';
+import ConfirmPassword from "./components/ConfirmPassword/ConfirmPassword";
 
 function App() {
     return (
@@ -19,6 +20,8 @@ function App() {
                 <Route path="/user/errorInvitation" element={<ErrorInvitation />} />
                 <Route path="/user/newPassword" element={<NewPassword />} />
                 <Route path="/user/forgotPassword" element={<ForgotPassword />} />
+
+                <Route path="/user/confirmPassword" element={<ConfirmPassword />} />
             </Routes>
         </MainLayout>    
 
