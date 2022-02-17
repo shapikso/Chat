@@ -5,13 +5,16 @@ import App from './App';
 //import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { MatchesContextProvider } from './userContext';
+import ErrorBoundary from "./components/ErrorBoundary/ErrorBoundary";
 
 ReactDOM.render(
-    <MatchesContextProvider>
-        <BrowserRouter>
-            <App />
-        </BrowserRouter>
-    </MatchesContextProvider>,
+    <ErrorBoundary>
+        <MatchesContextProvider>
+            <BrowserRouter>
+                <App />
+            </BrowserRouter>
+        </MatchesContextProvider>
+    </ErrorBoundary>,
     document.getElementById('root')
 );
 

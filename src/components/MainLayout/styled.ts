@@ -29,6 +29,9 @@ export const StNav = styled.div `
       border-color: #ebd19e;
     }
   }
+  a {
+    text-decoration: none;
+  }
 `;
 
 export const StGreeting = styled.div `

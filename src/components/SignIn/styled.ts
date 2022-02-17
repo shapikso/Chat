@@ -21,7 +21,9 @@ export const ActiveFieldWrapper = styled.div`
 `;
 
 export const SingInWrapper = styled.div`
- display: flex;
+  width: 700px;
+  margin: 300px auto;
+  display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;

@@ -13,9 +13,7 @@ export type TCard = {
     flavor: string,
     artist: string,
     collectible: boolean,
-    elite: boolean,
     playerClass: string,
-    howToGetDiamond: string,
     img: string,
     locale: string
 };

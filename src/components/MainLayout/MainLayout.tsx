@@ -16,7 +16,9 @@ const MainLayout = () => {
                         Greeting {user}
                 </StGreeting>
                 <StNav>
-                    <Button variant="text">About</Button>
+                    <Link to="/about">
+                        <Button variant="text">About</Button>
+                    </Link>
                     <Link to="/">
                         <Button variant="outlined" onClick={handleClick}> Log Out </Button>
                     </Link>
