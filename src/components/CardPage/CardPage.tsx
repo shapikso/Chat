@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import axios from "axios";
 import { useLocation } from 'react-router-dom';
 import {StCardWrapper, StLoader, StContentWrapper, StImageWrapper, StInfoWrapper} from './styled';
 import logo from "../../images/loader1.gif";
-import checkAuth from "../../HOCs/LogHoc";
+//import checkAuth from "../../HOCs/LogHoc";
 import { TCard } from '../../commonTypes';
 import {HEADER, SINGL_CARD_URL} from "../../constants/url";
 import {cardData} from "../../constants/cardData";
@@ -15,7 +15,7 @@ type TState = {
 };
 
 const CardPage: React.FC = () => {
-    const [state, setState] = useState<TState>({isLoading: true, card: cardData});
+    const [state, setState] =  React.useState<TState>({isLoading: true, card: cardData});
     const { pathname } = useLocation();
     const cardId = pathname.split('/')[2];
     useEffect(() => {
@@ -31,21 +31,21 @@ const CardPage: React.FC = () => {
             return false;
         }
     };
-    const {img, name, flavor, cost, attack, health} = state.card;
+   // const {img, name, flavor, cost, attack, health} = state.card;
     return (
         <StCardWrapper>
             { state.isLoading
                 ? <StLoader src={logo} alt="loading..." />
                 : state.card ? (<StContentWrapper>
                     <StImageWrapper>
-                        <img src={img}/>
+                        <img src={state.card.img}/>
                     </StImageWrapper>
                     <StInfoWrapper>
-                        <div>Card Name: {name}</div>
-                        <div>Card Favor: {flavor}</div>
-                        <div>Manacost: {cost}</div>
-                        <div>Card Attack: {attack}</div>
-                        <div>Card Health: {health}</div>
+                        <div>Card Name: {state.card.name}</div>
+                        <div>Card Favor: {state.card.flavor}</div>
+                        <div>Manacost: {state.card.cost}</div>
+                        <div>Card Attack: {state.card.attack}</div>
+                        <div>Card Health: {state.card.health}</div>
                     </StInfoWrapper>
                 </StContentWrapper>)
                     : null
@@ -54,4 +54,4 @@ const CardPage: React.FC = () => {
     );
 };
 
-export default checkAuth(CardPage);
+export default CardPage;

@@ -1,14 +1,13 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import { StCardWrapper, StLoader } from './styled';
 import axios from 'axios';
 import logo from '../../images/loader1.gif';
-import checkAuth from "../../HOCs/LogHoc";
 import { TCard } from '../../commonTypes';
 import {CARDS_URL, HEADER} from "../../constants/url";
 import SinglCard from "./SinglCard";
 
 const Cards = () => {
-    const [state, setState] = useState({isLoading: true, cards:[]});
+    const [state, setState] =  React.useState({isLoading: true, cards:[]});
     useEffect(() => {
         getData();
     },[]);
@@ -23,7 +22,7 @@ const Cards = () => {
         }
     };
     return (
-        <StCardWrapper>
+        <StCardWrapper className="cardsList">
             { state.isLoading
                 ? <StLoader src={logo} alt="loading..." />
                 : ( state.cards.map((card: TCard) => {
@@ -36,4 +35,4 @@ const Cards = () => {
     );
 };
 
-export default checkAuth(Cards);
+export default Cards;

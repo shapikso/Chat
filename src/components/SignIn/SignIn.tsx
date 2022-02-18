@@ -1,20 +1,11 @@
-import React, {useContext} from 'react';
-//import InputField from "../common/Input/InputField";
-import { ActiveFieldWrapper, SingInWrapper, StFormWrapper,StH1 } from './styled';
-import Button from "../common/Button/Button";
-import TextField from '@mui/material/TextField';
+import React from 'react';
+import { SingInWrapper, StFormWrapper,StH1 } from './styled';
 import {isValidEmail, isValidPassword} from "../../helpers/validation";
-import { useNavigate } from 'react-router';
-import {UserContext} from "../../userContext";
+import ActiveField from "./ActiveField";
 
-type TContext = {
-    user: string,
-    setNewUser: (value: string) => void
-}
 
 const SignIn = () => {
-    const navigate = useNavigate();
-    const {setNewUser} = useContext<TContext>(UserContext);
+
     const [state, setState] = React.useState({
         login: '',
         password: '',
@@ -42,38 +33,20 @@ const SignIn = () => {
         const error = isValidEmail(state.login);
         setState({...state, error: {...state.error, login: error}});};
 
-    const onClickHandler = () => {
-        setNewUser(state.login);
-        navigate('/cards');
-    };
     return (
         <SingInWrapper>
             <StFormWrapper>
                 <StH1>Sign in</StH1>
-                <ActiveFieldWrapper>
-                    <TextField
-                        id="filled-basic"
-                        onChange={changeEmail}
-                        onBlur={validateEmail}
-                        value={state.login}
-                        label="Login"
-                        error={!!state.error.login}
-                        helperText={state.error.login}/>
-                    <TextField
-                        id="filled-basic"
-                        onChange={changePassword}
-                        onBlur={validatePassword}
-                        value={state.password}
-                        label="Password"
-                        type="password"
-                        error={!!state.error.password}
-                        helperText={state.error.password}/>
-                    <Button
-                        type="button"
-                        isDisabled={ !!state.error.login || !!state.error.password }
-                        onClick={onClickHandler}
-                        contentKey="SIGN IN" />
-                </ActiveFieldWrapper>
+                <ActiveField
+                    changeEmail={changeEmail}
+                    changePassword={changePassword}
+                    validatePassword={validatePassword}
+                    validateEmail={validateEmail}
+                    login={state.login}
+                    password={state.password}
+                    errorLogin={state.error.login}
+                    errorPassword={state.error.password}
+                />
             </StFormWrapper>
         </SingInWrapper>
     );

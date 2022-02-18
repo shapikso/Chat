@@ -9,6 +9,10 @@ export const ActiveFieldWrapper = styled.div`
   flex-direction: column;
   gap: 25px;
  
+  button {
+    color: #ebd19e;
+    background-color: #1f0c08;
+  }
   div{
     label {
       color: #1f0c08;

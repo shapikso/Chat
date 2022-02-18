@@ -1,7 +1,7 @@
 import React from 'react';
 import {StCardWrapper, StH1, StP} from "./styled";
 import {text} from "../../constants/aboutText";
-import checkAuth from '../../HOCs/LogHoc';
+//import checkAuth from '../../HOCs/LogHoc';
 
 const About = () => {
     return (
@@ -12,4 +12,4 @@ const About = () => {
     );
 };
 
-export default checkAuth(About);
+export default About;

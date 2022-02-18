@@ -9,7 +9,6 @@ import About from "./components/About/About";
 
 function App() {
     return (
-       
         <Routes>
             <Route path="/" element={<SignIn />} />
             <Route element={<MainLayout />}>
@@ -18,8 +17,6 @@ function App() {
                 <Route path="/cards/:id" element={<CardPage />}/>
             </Route>
         </Routes>
-        
-
     );
 }
 

@@ -2,19 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-//import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { MatchesContextProvider } from './userContext';
 import ErrorBoundary from "./components/ErrorBoundary/ErrorBoundary";
 
 ReactDOM.render(
-    <ErrorBoundary>
-        <MatchesContextProvider>
-            <BrowserRouter>
+    <BrowserRouter>
+        <ErrorBoundary>
+            <MatchesContextProvider>
                 <App />
-            </BrowserRouter>
-        </MatchesContextProvider>
-    </ErrorBoundary>,
+            </MatchesContextProvider>
+        </ErrorBoundary>
+    </BrowserRouter>
+    ,
     document.getElementById('root')
 );
 

@@ -9,19 +9,20 @@ import {HEADER, SINGL_CARD_URL} from "../../../constants/url";
 
 const data = cardData;
 jest.mock("axios");
-describe('async Movies', () => {
+jest.mock('react-router-dom', () => ({
+    useLocation: () => ({ pathname: '/cards/VAN_EX1_284' })
+}));
+describe('async Card', () => {
     const setStateMock = jest.fn();
     beforeEach(() => {
-        React.useState = jest.fn().mockReturnValue([{isLoading: true, card: null}, setStateMock]);
+        React.useState = jest.fn().mockReturnValue([{isLoading: false, card: null}, setStateMock]);
     });
-
     afterEach(() => {
         jest.clearAllMocks();
     });
-    it(`should load films`, async () => {
+    it(`should load card data`, async () => {
         let component;
         await act(async () => {
-            // @ts-ignore
             await axios.get.mockImplementationOnce(() => Promise.resolve(data));
             component = mount(<CardPage/>);
         });
