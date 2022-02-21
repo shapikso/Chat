@@ -8,17 +8,19 @@ import SignUp from './components/SignUp/SignUp';
 import ErrorInvitation from './components/ErrorInvitation/ErrorInvitation';
 import NewPassword from './components/NewPassword/NewPassword';
 import ForgotPassword from './components/ForgotPassword/ForgotPassword';
+import ConfirmPassword from "./components/ConfirmPassword/ConfirmPassword";
 
 function App() {
     return (
         <MainLayout>
             <Routes>
-                <Route path="/sign-in" element={<SignIn />} />
-                <Route path="sign-up" element={<SignUp />} />
-                <Route path="/accept-invitation" element={<AcceptInvitation />} />
-                <Route path="/user/error-invitation" element={<ErrorInvitation />} />
-                <Route path="/change-password" element={<NewPassword />} />
-                <Route path="/forgot-password" element={<ForgotPassword />} />
+                <Route path="/" element={<SignIn />} />
+                <Route path="/user/signUp" element={<SignUp />} />
+                <Route path="/user/acceptInvitation" element={<AcceptInvitation />} />
+                <Route path="/user/errorInvitation" element={<ErrorInvitation />} />
+                <Route path="/user/newPassword" element={<NewPassword />} />
+                <Route path="/user/forgotPassword" element={<ForgotPassword />} />
+                <Route path="/user/confirmPassword" element={<ConfirmPassword />} />
             </Routes>
         </MainLayout>    
 
