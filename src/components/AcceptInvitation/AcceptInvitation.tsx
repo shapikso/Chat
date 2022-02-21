@@ -5,6 +5,7 @@ import InputField from "../common/Input/InputField";
 import Button from "../common/Button/Button";
 import Select from "react-select";
 import DateInput from "../common/DateInput/DateInput";
+import {useNavigate} from "react-router";
 
 const GENDER_OPTIONS = [
     { value: 'male', label: 'Male' },
@@ -29,6 +30,7 @@ type TState = {
 
 
 const AcceptInvitation = () => {
+    const navigate = useNavigate();
     const [state, setState] = React.useState<TState>({
         firstName: '',
         secondName: '',
@@ -62,7 +64,7 @@ const AcceptInvitation = () => {
             //const body = {login: state.email, password: state.password};
             //const {headers} = await axios.post(URL_SIGN_IN, body);
             //localStorage.setItem('token', headers.token);
-            //navigate('/acceptInvitation');
+            navigate('/sign-in');
         } finally {
             setState({...state, isLoading: false});
         }

@@ -1,0 +1,17 @@
+version: '3'
+
+networks:
+  network1:
+    external: true
+
+services:
+  main:
+    container_name: messanger-front
+    restart: always
+    build: .
+    command:
+      npm start
+    networks:
+        - network1
+    ports:
+      - 3000:3000
