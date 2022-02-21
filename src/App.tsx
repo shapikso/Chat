@@ -3,9 +3,9 @@ import './App.css';
 import MainLayout from './components/MainLayout/MainLayout';
 import { Routes, Route} from "react-router-dom";
 import SignIn from "./components/SignIn/SignIn";
-import Cards from './components/Cards/Cards';
-import CardPage from './components/CardPage/CardPage';
-import About from "./components/About/About";
+import Cards from './components/Cards';
+import CardPage from './components/CardPage';
+import About from "./components/About";
 
 function App() {
     return (

@@ -25,7 +25,6 @@ describe('async Cards', () => {
             await axios.get.mockImplementationOnce(() => Promise.resolve(data));
             component = mount(<Cards/>);
         });
-        // @ts-ignore
         component.update();
         await expect(axios.get).toHaveBeenCalledWith(`${CARDS_URL}`, {headers: HEADER});
         await expect(axios.get).toHaveBeenCalledTimes(1);

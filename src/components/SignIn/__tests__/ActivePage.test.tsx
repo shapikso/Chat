@@ -3,7 +3,6 @@ import {shallow} from 'enzyme';
 import ActiveField from "../ActiveField";
 
 const mockedNavigator = jest.fn();
-
 jest.mock("react-router", () => ({
     ...(jest.requireActual("react-router") as any), // technically it passes without this too, but I'm not sure if its there for other tests to use the real thing so I left it in
     useNavigate: () => mockedNavigator,
