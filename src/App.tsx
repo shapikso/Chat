@@ -21,7 +21,6 @@ function App() {
                 <Route path="/user/newPassword" element={<NewPassword />} />
                 <Route path="/user/forgotPassword" element={<ForgotPassword />} />
 
-
                 <Route path="/user/confirmPassword" element={<ConfirmPassword />} />
             </Routes>
         </MainLayout>    
